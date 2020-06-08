@@ -6,7 +6,6 @@ Vue.use(VueRouter)
 
 const routes = [
     { path: '/', component: require('../components/Hello.vue') },
-    { path: '/teste', component: { template: "<h1>teste 123</h1>" } },
     { path: '*', component: { template: "<h1>not found</h1>" } }
 ]
 

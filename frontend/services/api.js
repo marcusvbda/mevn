@@ -1,8 +1,9 @@
 import axios from 'axios'
-import config from '../config'
-
+process.env = require('../config')
 const api = axios.create({
-    baseURL: config.server_route
+    baseURL: process.env.SERVER_ROUTE
 })
+window.$api = api
 
-export default api
+// api.defaults.headers.common.Authorization = token ? `Bearer ${token}` : null
+

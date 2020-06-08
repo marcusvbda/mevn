@@ -2,7 +2,8 @@ export default {
     state: {
         user: {
             nome: undefined,
-            id: undefined
+            id: undefined,
+            token: undefined
         }
     },
     getters: {

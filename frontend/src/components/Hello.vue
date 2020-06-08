@@ -1,17 +1,16 @@
 <template>
     <div id="hello">
         <h1>{{ msg }}</h1>
-        <h2>Essential Links</h2>
+        <el-alert title="success alert" type="success" effect="dark"></el-alert>
         <ul>
             <li>
-                <a href="#" @click.prevent="goToTest">Teste</a>
+                <a href="#" @click.prevent="$router.push({ path: 'teste' })">Teste</a>
             </li>
         </ul>
     </div>
 </template>
 
 <script>
-import api from '../../services/api'
 export default {
     data() {
         return {
@@ -19,19 +18,14 @@ export default {
         }
     },
     beforeRouteEnter(to, from, next) {
-        api.get("/auth/get-data").then(res => {
+        $api.get("/auth/get-data").then(res => {
             next(_this => {
                 _this.msg = res.data.msg
             })
         }).catch(er => {
             console.log(er)
         })
-    },
-    methods: {
-        goToTest() {
-            this.$router.push({ path: "teste" })
-        }
-    },
+    }
 }
 </script>
 
